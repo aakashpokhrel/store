@@ -125,7 +125,7 @@ export default class AddServices extends Component {
                     <Navbar.Brand href="/admin">Staff Dashboard</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link><Link to="/admin">Home</Link></Nav.Link>
-                        <Nav.Link><Link to="/AddShow">AddShow</Link></Nav.Link>
+                        <Nav.Link><Link to="/AddProduct">AddProduct</Link></Nav.Link>
                         <Nav.Link><Link to="/ViewBooking">View Booking</Link></Nav.Link>
                         <Nav.Link><Link to="/AddServices">AddServices</Link></Nav.Link>
                     </Nav>
@@ -136,7 +136,7 @@ export default class AddServices extends Component {
 
                         <div className="row">
                             <div className="col-lg-12 text-center">
-                                <h2 className="section-heading text-uppercase">All Required Show</h2>
+                                <h2 className="section-heading text-uppercase">All Required Product</h2>
                                 <h3 className="section-subheading text-muted">Available here.</h3>
                             </div>
                         </div>
@@ -154,7 +154,7 @@ export default class AddServices extends Component {
                                                 padding: "30px"
                                             }}
                                         >
-                                            <h3 className="text-center">Show</h3>
+                                            <h3 className="text-center">Product</h3>
                                             <FormGroup>
                                                 <Form.Label>Venue</Form.Label>
 

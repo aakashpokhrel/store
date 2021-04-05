@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link } from 'react-router-dom'
-import { Table, Button } from 'reactstrap'
+import { Table } from 'reactstrap'
 import Weekend from '../images/The Weekend.jpg'
 import Bruno from '../images/Bruno Mars.jpg';
 import David from '../images/David Guetta.jpg';
@@ -18,7 +18,7 @@ console.log(David);
 console.log(Toplogo);
 
 
-export default class Show extends Component {
+export default class Product extends Component {
 
     constructor(props) {
         super(props)
@@ -28,7 +28,7 @@ export default class Show extends Component {
             venue: '',
             ticketrate: '',
             timeperiod: '',
-            shows: [], //array of object
+            products: [], //array of object
             //To send Token Information
             config: {
                 headers: { 'Authorization': "Bearer " + localStorage.getItem('token') }
@@ -38,11 +38,11 @@ export default class Show extends Component {
     }
 
     componentDidMount() {  //only call once
-        Axios.get(`http://localhost:3001/concert`, this.state.config)
+        Axios.get(`http://localhost:3001/good`, this.state.config)
             .then((res) => {
                 //console.log(res);
                 this.setState({
-                    shows: res.data
+                    products: res.data
                 })
             }).catch((err) => console.log(err.response));
 
@@ -58,7 +58,7 @@ export default class Show extends Component {
         this.props.history.push({
             pathname: '/booking',
 
-            state: { Showid: id }
+            state: { Productid: id }
         })
 
     }
@@ -94,7 +94,7 @@ export default class Show extends Component {
                   <Link className="nav-link js-scroll-trigger" to="/booking">booking</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link js-scroll-trigger" to="/Show">All Show</Link>
+                  <Link className="nav-link js-scroll-trigger" to="/Product">All Product</Link>
                 </li>
 
                 <li className="nav-item">
@@ -124,7 +124,7 @@ export default class Show extends Component {
                         <div className="intro-text">
                             <div className="intro-lead-in">Welcome To Concert Booking App</div>
                             <div className="intro-heading text-uppercase">Music Can Change The World</div>
-                            <a className="btn btn-secondary btn-xl text-uppercase js-scroll-trigger" href="/Show">Tell Me More</a>
+                            <a className="btn btn-secondary btn-xl text-uppercase js-scroll-trigger" href="/Product">Tell Me More</a>
                         </div>
                     </div>
                 </header>
@@ -197,22 +197,22 @@ export default class Show extends Component {
                                 <thead>
                                     <tr>
 
-                                        <th>Venue</th>
-                                        <th>Ticket rate</th>
-                                        <th>Timeperiod</th>
-                                        <th>BOOK Now</th>
+                                        <th>S.N</th>
+                                        <th>Product Name</th>
+                                        <th>Price</th>
+                                        {/* <th>BOOK Now</th> */}
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {this.state.shows.map(Show => (
+                                    {this.state.products.map(Product => (
 
                                         <tr>
 
-                                            <td key={Show._id}>{Show.venue}</td>
-                                            <td key={Show._id}>{Show.ticketrate}</td>
-                                            <td key={Show._id}>{Show.timeperiod}</td>
-                                            <Button onClick={() => this.Book(Show._id)} >Book Now</Button>
+                                            <td key={Product._id}>{Product.sn}</td>
+                                            <td key={Product._id}>{Product.productname}</td>
+                                            <td key={Product._id}>{Product.productprice}</td>
+                                            {/* <Button onClick={() => this.Book(Product._id)} >Book Now</Button> */}
 
 
                                         </tr>

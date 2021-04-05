@@ -4,16 +4,16 @@ import { Table, Button } from 'reactstrap'
 import { Form, FormGroup, Container } from 'react-bootstrap'
 import Axios from 'axios'
 import {Link } from 'react-router-dom'
-export default class AddShow extends Component {
+export default class AddProduct extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            ShowId:'',
-            venue: '',
-            ticketrate: '',
-            timeperiod: '',
-            shows: [], //array of object
+            ProductId:'',
+            sn: '',
+            productname: '',
+            productprice: '',
+            products: [], //array of object
             isEdit:false,
             //token information pathauna
             config: {
@@ -24,11 +24,11 @@ export default class AddShow extends Component {
     }
 
     componentDidMount() {  //only call once
-        Axios.get(`http://localhost:3001/concert`, this.state.config)
+        Axios.get(`http://localhost:3001/good`, this.state.config)
             .then((res) => {
                 //console.log(res);
                 this.setState({
-                    shows: res.data
+                    products: res.data
                 })
             }).catch((err) => console.log(err.response));
 
@@ -44,43 +44,43 @@ export default class AddShow extends Component {
         e.preventDefault(); //stop refreshing
         //edit code
         if(this.state.isEdit){
-            Axios.put(`http://localhost:3001/concert/${this.state.ShowId}`,
-            {venue:this.state.venue,
-            ticketrate:this.state.ticketrate,
-            timeperiod:this.state.timeperiod},this.state.config
+            Axios.put(`http://localhost:3001/good/${this.state.ProductId}`,
+            {sn:this.state.sn,
+            productname:this.state.productname,
+            productprice:this.state.productprice},this.state.config
             )
             .then((res) =>{
               console.log(res.data)  
-                const updatedShow=this.state.shows.map((Shows) =>{
-                    if(Shows._id ===this.state.ShowId){
-                        Shows.venue= this.state.venue
-                        Shows.ticketrate= this.state.ticketrate
-                        Shows.timeperiod= this.state.timeperiod
+                const updatedProduct=this.state.products.map((Products) =>{
+                    if(Products._id ===this.state.ProductId){
+                        Products.sn= this.state.sn
+                        Products.productname= this.state.productname
+                        Products.productprice= this.state.productprice
 
                     }
     
                 this.setState({
-                    shows:updatedShow,
+                    products:updatedProduct,
                     isEdit:false,
-                    venue:'',
-                    ticketrate:'',
-                    timeperiod:'',
-                    ShowId:''
+                    sn:'',
+                    productname:'',
+                    productprice:'',
+                    ProductId:''
                 })
-                return Shows;
+                return Products;
                 })
             }).catch((err) => console.log(err.response))
         
         }else{
-        Axios.post('http://localhost:3001/concert', { venue: this.state.venue, ticketrate: this.state.ticketrate, timeperiod: this.state.timeperiod },
+        Axios.post('http://localhost:3001/good', { sn: this.state.sn, productname: this.state.productname, productprice: this.state.productprice },
             this.state.config)
             .then((res) => {
                 console.log(res.data);
                 this.setState({
-                    shows: this.state.shows.concat(res.data), //without loading page data add  spread operator
-                    venue:'',
-                    ticketrate:'',
-                    timeperiod:''
+                    products: this.state.products.concat(res.data), //without loading page data add  spread operator
+                    sn:'',
+                    productname:'',
+                    productprice:''
 
                 })
 
@@ -89,33 +89,33 @@ export default class AddShow extends Component {
         }
     }
 
-    deleteShow = (ShowId) => {
-        console.log(ShowId);
-        Axios.delete(`http://localhost:3001/concert/${ShowId}`, this.state.config)
+    deleteProduct = (ProductId) => {
+        console.log(ProductId);
+        Axios.delete(`http://localhost:3001/good/${ProductId}`, this.state.config)
             .then((res) => {
                 console.log(res.data);
-                const filteredshows = this.state.shows.filter((Shows) => {
-                    return Shows._id !==ShowId
+                const filteredproducts = this.state.products.filter((Products) => {
+                    return Products._id !==ProductId
 
                 });
                 this.setState({
-                    shows: filteredshows
+                    products: filteredproducts
                 })
             }).catch((err) => console.log(err));
     }
 
-    editShow =(ShowId)=>{
-        console.log(ShowId);
-        const show_=this.state.shows.find((Shows)=>{
+    editProduct =(ProductId)=>{
+        console.log(ProductId);
+        const product_=this.state.products.find((Products)=>{
             console.log(this);
-         return Shows._id ===ShowId
+         return Products._id ===ProductId
         });
         this.setState({
           
-           ShowId:show_._id,
-           venue:show_.venue,
-           ticketrate:show_.ticketrate,
-           timeperiod:show_.timeperiod,
+            ProductId:product_._id,
+           sn:product_.sn,
+           productname:product_.productname,
+           productprice:product_.productprice,
           isEdit:true
         })
       }
@@ -126,7 +126,7 @@ export default class AddShow extends Component {
                     <Navbar.Brand href="/admin">Staff Dashboard</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link><Link to="/admin">Home</Link></Nav.Link>
-                        <Nav.Link><Link to="/AddShow">AddShow</Link></Nav.Link>
+                        <Nav.Link><Link to="/AddProduct">AddProduct</Link></Nav.Link>
                         <Nav.Link><Link to="/ViewBooking">View Booking</Link></Nav.Link>
                         <Nav.Link><Link to="/AddServices">AddServices</Link></Nav.Link>
                     </Nav>
@@ -138,7 +138,7 @@ export default class AddShow extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12 text-center">
-                                <h2 className="section-heading text-uppercase">All Required Show</h2>
+                                <h2 className="section-heading text-uppercase">All Required Product</h2>
                                 <h3 className="section-subheading text-muted">Listed here.</h3>
                             </div>
                         </div>
@@ -156,24 +156,24 @@ export default class AddShow extends Component {
                                                 padding: "30px"
                                             }}
                                         >
-                                            <h3 className="text-center">Show</h3>
+                                            <h3 className="text-center">Product</h3>
                                             <FormGroup>
-                                                <Form.Label>Venue</Form.Label>
+                                                <Form.Label>S.N</Form.Label>
 
-                                                <Form.Control type="text" name="venue" id="venue" placeholder="venue"
-                                                    value={this.state.venue} onChange={this.handleChange} />
+                                                <Form.Control type="text" name="sn" id="sn" placeholder="Serial Number"
+                                                    value={this.state.sn} onChange={this.handleChange} />
                                             </FormGroup>
 
                                             <FormGroup>
-                                                <Form.Label>Ticketrate</Form.Label>
-                                                <Form.Control type="text" name="ticketrate" id="ticketrate" placeholder="ticketrate"
-                                                    value={this.state.ticketrate} onChange={this.handleChange} />
+                                                <Form.Label>Product Name</Form.Label>
+                                                <Form.Control type="text" name="productname" id="productname" placeholder="productname"
+                                                    value={this.state.productname} onChange={this.handleChange} />
                                             </FormGroup>
 
                                             <FormGroup>
-                                                <Form.Label>Time period</Form.Label>
-                                                <Form.Control type="text" name="timeperiod" id="timeperiod" placeholder="timeperiod"
-                                                    value={this.state.timeperiod} onChange={this.handleChange} />
+                                                <Form.Label>Product Price</Form.Label>
+                                                <Form.Control type="text" name="productprice" id="productprice" placeholder="productprice"
+                                                    value={this.state.productprice} onChange={this.handleChange} />
                                             </FormGroup>
 
                                             {
@@ -196,22 +196,22 @@ export default class AddShow extends Component {
                                 <thead>
                                     <tr>
                                        <th>#</th>
-                                        <th>Venue</th>
-                                        <th>Ticket rate</th>
-                                        <th>Timeperiod</th>
+                                        <th>S.N</th>
+                                        <th>Product Name</th>
+                                        <th>Product Price</th>
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {this.state.shows.map(Shows => (
+                                    {this.state.products.map(Products => (
                                         <tr>
                                              <th scope="row">#</th>
-                                            <td key={Shows._id}>{Shows.venue}</td>
-                                            <td key={Shows._id}>{Shows.ticketrate}</td>
-                                            <td key={Shows._id}>{Shows.timeperiod}</td>
+                                            <td key={Products._id}>{Products.sn}</td>
+                                            <td key={Products._id}>{Products.productname}</td>
+                                            <td key={Products._id}>{Products.productprice}</td>
 
-                                            <Button variant="danger" onClick={() => this.deleteShow(Shows._id)}>Delete</Button>
-                                            <Button variant="danger" onClick={() => this.editShow(Shows._id)}>Edit</Button>
+                                            <Button variant="danger" onClick={() => this.deleteProduct(Products._id)}>Delete</Button>
+                                            <Button variant="danger" onClick={() => this.editProduct(Products._id)}>Edit</Button>
                                         </tr>
                                     ))}
                                 </tbody>

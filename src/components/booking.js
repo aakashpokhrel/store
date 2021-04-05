@@ -15,7 +15,7 @@ export default class booking extends Component {
             customername: '',
             location: '',
             reserve: [],
-            show:"",
+            product:"",
             isEdit:false,
 
             config:{
@@ -24,20 +24,7 @@ export default class booking extends Component {
 
         }
     }
-    //to bring all the data from api can be call only once
-    // componentDidMount() {
-    //     const ShowId=this.props.location.state.Showid;
-
-  
-    //      this.setState({show:ShowId})
-    //          Axios.get('http://localhost:3001/reserve')
-    //             .then((res) => {
-    //             this.setState({
-    //                 reserve: res.data
-    //             })
-    //         }).catch((err) => console.log(err.response));
-
-    // }
+    
     handleChange = (e) =>
         this.setState({ [e.target.name]: e.target.value })
 
@@ -82,7 +69,7 @@ export default class booking extends Component {
                   <Link className="nav-link js-scroll-trigger" to="/booking">booking</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link js-scroll-trigger" to="/Show">All Show</Link>
+                  <Link className="nav-link js-scroll-trigger" to="/Product">All Product</Link>
                 </li>
 
                 <li className="nav-item">
@@ -126,7 +113,7 @@ export default class booking extends Component {
                         <div className="row">
                             <div className="col-lg-12 text-center">
                                 <h2 className="section-heading text-uppercase">Book Here</h2>
-                                <h3 className="section-subheading text-muted">And enjoy the show.</h3>
+                                <h3 className="section-subheading text-muted">And enjoy the product.</h3>
                             </div>
                         </div>
 

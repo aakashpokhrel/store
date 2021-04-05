@@ -60,7 +60,7 @@ export default class OnlineServices extends Component {
                   <Link className="nav-link js-scroll-trigger" to="/booking">booking</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link js-scroll-trigger" to="/Show">All Show</Link>
+                  <Link className="nav-link js-scroll-trigger" to="/Product">All Product</Link>
                 </li>
 
                 <li className="nav-item">

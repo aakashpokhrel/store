@@ -10,7 +10,7 @@ export default class AdminDash extends Component {
           <Navbar.Brand href="/admin">Welcome to Admin Dashboard</Navbar.Brand>
           <Nav className="mr-auto">
           <Nav.Link><Link to="/admin">Home</Link></Nav.Link>
-                        <Nav.Link><Link to="/AddShow">AddShow</Link></Nav.Link>
+                        <Nav.Link><Link to="/AddProduct">AddProduct</Link></Nav.Link>
                         <Nav.Link><Link to="/ViewBooking">View Booking</Link></Nav.Link>
                         <Nav.Link><Link to="/AddServices">AddServices</Link></Nav.Link>
             <button className='btn btn-warning' size="sm" onClick={() => {

@@ -31,7 +31,7 @@ export default class Dashboard extends Component {
                   <Link className="nav-link js-scroll-trigger" to="/booking">booking</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link js-scroll-trigger" to="/Show">All Show</Link>
+                  <Link className="nav-link js-scroll-trigger" to="/Product">All Product</Link>
                 </li>
 
                 <li className="nav-item">
@@ -144,7 +144,7 @@ Web security is also known as “Cybersecurity”. It basically means protecting
                 <img src={David} alt="Logo" />;
                   <h4>David Guetta</h4>
                 </div>
-                <Button variant="primary" href="/Show">More...</Button>
+                <Button variant="primary" href="/Product">More...</Button>
               </div>
               <div className="col-sm-4">
                 <div className="team-member">
