@@ -41,11 +41,6 @@ export default class AdminDash extends Component {
         </section>
 
       </div>
-
-
-
     );
-
   }
-
 }

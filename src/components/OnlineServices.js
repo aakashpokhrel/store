@@ -44,7 +44,7 @@ export default class OnlineServices extends Component {
     render() {
         return (
             <div className="App">
-                <nav className="autohide navbar navbar-expand-lg navbar-dark bg-secondary" id="mainNav">
+                <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
                     <div className="container">
                     <a className="navbar-brand js-scroll-trigger" href="#page-top">Music Store</a>
                         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,7 @@ export default class OnlineServices extends Component {
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link js-scroll-trigger" to="/Inquiry">Inquiry</Link>
+                  <Link className="nav-link js-scroll-trigger" to="/Contacts">Contacts</Link>
                 </li>
 
                 <button className='btn btn-warning' size="sm" onClick={() => {
@@ -125,7 +125,6 @@ export default class OnlineServices extends Component {
                                             <td key={OnlineServices._id}>{OnlineServices.ticketrate}</td>
                                             <td key={OnlineServices._id}>{OnlineServices.description}</td>
 
-
                                         </tr>
                                     ))}
                                 </tbody>
@@ -133,9 +132,6 @@ export default class OnlineServices extends Component {
                         </div>
                     </div>
                 </section>
-
-
-
                 <footer className="footer">
                     <div className="container">
                         <div className="row align-items-center">

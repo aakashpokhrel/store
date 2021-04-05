@@ -15,7 +15,7 @@ export default class AddProduct extends Component {
             productprice: '',
             products: [], //array of object
             isEdit:false,
-            //token information pathauna
+
             config: {
                 headers: { 'Authorization': "Bearer " + localStorage.getItem('token') }
             }
@@ -41,8 +41,7 @@ export default class AddProduct extends Component {
 
 
     handleSubmit = (e) => {
-        e.preventDefault(); //stop refreshing
-        //edit code
+        e.preventDefault(); 
         if(this.state.isEdit){
             Axios.put(`http://localhost:3001/good/${this.state.ProductId}`,
             {sn:this.state.sn,
@@ -77,7 +76,7 @@ export default class AddProduct extends Component {
             .then((res) => {
                 console.log(res.data);
                 this.setState({
-                    products: this.state.products.concat(res.data), //without loading page data add  spread operator
+                    products: this.state.products.concat(res.data),
                     sn:'',
                     productname:'',
                     productprice:''
@@ -216,10 +215,6 @@ export default class AddProduct extends Component {
                                     ))}
                                 </tbody>
                             </Table>
-
-
-
-
 
                         </div>
                     </div>

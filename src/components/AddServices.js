@@ -15,18 +15,14 @@ export default class AddServices extends Component {
             ticketrate: '',
             description: '',
             isEdit: false,
-            Services: [] //array of object
-            //isEdit:false,
-            //token information pathauna
-
+            Services: []
         }
 
     }
 
-    componentDidMount() {  //only call once
+    componentDidMount() {
         Axios.get(`http://localhost:3001/service`)
             .then((res) => {
-                //console.log(res);
                 this.setState({
                     Services: res.data
                 })
@@ -38,8 +34,7 @@ export default class AddServices extends Component {
 
 
     handleSubmit = (e) => {
-        e.preventDefault(); //stop refreshing
-        //edit code
+        e.preventDefault();
         if (this.state.isEdit) {
             Axios.put(`http://localhost:3001/service/${this.state.ServiceId}`,
                 { venue: this.state.venue ,
@@ -73,7 +68,7 @@ export default class AddServices extends Component {
                 .then((res) => {
                     console.log(res.data);
                     this.setState({
-                        Services: this.state.Services.concat(res.data), //without loading page data add  spread operator
+                        Services: this.state.Services.concat(res.data),
                         venue: '',
                         ticketrate: '',
                         description: ''
@@ -114,9 +109,6 @@ export default class AddServices extends Component {
             isEdit: true
         })
     }
-
-
-
 
     render() {
         return (
@@ -217,11 +209,6 @@ export default class AddServices extends Component {
                                     ))}
                                 </tbody>
                             </Table>
-
-
-
-
-
                         </div>
                     </div>
                 </section>

@@ -15,7 +15,7 @@ export default class Dashboard extends Component {
     return (
 
       <div className="App">
-        <nav className="autohide navbar navbar-expand-lg navbar-dark bg-secondary" id="mainNav">
+        <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
           <div className="container">
           <a className="navbar-brand js-scroll-trigger" href="#page-top">Music Store</a>
             <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,11 +50,6 @@ export default class Dashboard extends Component {
                                 </button>
 
 
-                {/* <NavDropdown title="Profile" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/Login">Login</NavDropdown.Item>
-                  <NavDropdown.Item href="/register">register</NavDropdown.Item>
-                </NavDropdown> */}
-
               </ul>
             </div>
           </div>
@@ -64,8 +59,7 @@ export default class Dashboard extends Component {
           <div className="container">
             <div className="row">
               <div className="col-lg-12 text-center">
-                <h2 className="section-heading text-uppercase">Welcome to Ticket </h2>
-                <h3 className="section-subheading text-muted">Get the Services nad enjoy your Life</h3>
+                <h2 className="section-heading text-uppercase">Welcome to Music Store </h2>
                 <a className="btn btn-danger btn-xl text-uppercase js-scroll-trigger" href="#About">Tell Me More</a>
 
               </div>
@@ -74,11 +68,6 @@ export default class Dashboard extends Component {
           </div>
 
         </section>
-
-
-
-
-
         <section className="page-section" id="About">
           <div className="container">
             <div className="row">
@@ -90,38 +79,23 @@ export default class Dashboard extends Component {
             <div className="row text-center">
               <div className="col-md-4">
 
-                <h4 className="service-heading">E-Commerce</h4>
+                <h4 className="service-heading">Instrument Servicing</h4>
                 <p className="text-muted">E-commerce (electronic commerce) is the buying and selling of goods and services, or the transmitting of funds or data, over an electronic network, primarily the internet. These business transactions occur either as business-to-business (B2B), business-to-consumer (B2C), consumer-to-consumer or consumer-to-business.</p>
               </div>
               <div className="col-md-4">
 
-                <h4 className="service-heading">Performer</h4>
+                <h4 className="service-heading">Hire Instrument</h4>
                 <p className="text-muted">A performer is an entertainer like an actor, musician, singer that creatively expresses their artistic talent to an audience. They perform before live audiences and/or for television and film. Performers typically work closely with vocal coaches.</p>
               </div>
               <div className="col-md-4">
 
-                <h4 className="service-heading"> Security</h4>
+                <h4 className="service-heading"> Gears</h4>
                 <p className="text-muted">Image result for web security
 Web security is also known as “Cybersecurity”. It basically means protecting a website or web application by detecting, preventing and responding to cyber threats. Websites and web applications are just as prone to security breaches as physical homes, stores, and government locations.</p>
               </div>
             </div>
           </div>
         </section>
-
-
-
-        {/* <header className="masthead">
-          <div className="container">
-            <div className="intro-text">
-              <div className="intro-lead-in">About Music</div>
-              <div className="intro-heading text-uppercase">Live the Moment</div>
-
-            </div>
-          </div>
-        </header>    */}
-
-
-
 
         <section className="bg-light page-section" id="team">
           <div className="container">
@@ -178,12 +152,6 @@ Web security is also known as “Cybersecurity”. It basically means protecting
 
           </div>
         </section>
-
-
-
-
-
-
         <footer className="footer">
           <div className="container">
             <div className="row align-items-center">

@@ -18,7 +18,6 @@ export default class Login extends Component {
             password: '',
             isUser:false,
             isAdmin:false,
-            //loggedIn: false
 
         }
     }

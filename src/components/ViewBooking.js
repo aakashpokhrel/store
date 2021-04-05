@@ -22,7 +22,6 @@ export default class ViewBooking extends Component {
            
         }
     }
-    //to bring all the data from api can be call only once
     componentDidMount() {
         Axios.get('http://localhost:3001/reserve', this.state.config)
             .then((res) => {
@@ -36,12 +35,12 @@ export default class ViewBooking extends Component {
     this.setState({ [e.target.name]: e.target.value })
 
     handleSubmit = (e) => {
-        e.preventDefault(); //stop refreshing
+        e.preventDefault();
         Axios.post('http://localhost:3001/reserve', this.state)
             .then((res) => {
                 console.log(res.data);
                 this.setState({
-                    reserve: this.state.reserve.concat(res.data) //without loading page data add  spread operator
+                    reserve: this.state.reserve.concat(res.data) 
 
 
                 })
@@ -122,18 +121,6 @@ export default class ViewBooking extends Component {
                                     ))}
                                 </tbody>
                             </Table>
-                            {/* <ListGroup>
-                                {
-                                    this.state.reserve.map((booking) => {
-                                        return <ListGroupItem
-                                            key={booking._id}>
-                                                {booking.seats}
-
-                                            <Button close onClick={() =>this.deletebooking(booking._id)}/>
-                                        </ListGroupItem>
-                                    })
-                                }
-                            </ListGroup> */}
                         </div>
                     </div>
                 </section> 

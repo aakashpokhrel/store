@@ -10,7 +10,6 @@ import Psy from '../images/PSY.jpg';
 import Axios from 'axios'
 import Toplogo from '../images/toplogo.png'
 
-//import { Link } from 'react-router-dom'
 console.log(Guitar)
 console.log(Weekend);
 console.log(Bruno);
@@ -28,8 +27,7 @@ export default class Product extends Component {
             venue: '',
             ticketrate: '',
             timeperiod: '',
-            products: [], //array of object
-            //To send Token Information
+            products: [],
             config: {
                 headers: { 'Authorization': "Bearer " + localStorage.getItem('token') }
             }
@@ -37,19 +35,15 @@ export default class Product extends Component {
 
     }
 
-    componentDidMount() {  //only call once
+    componentDidMount() { 
         Axios.get(`http://localhost:3001/good`, this.state.config)
             .then((res) => {
-                //console.log(res);
                 this.setState({
                     products: res.data
                 })
             }).catch((err) => console.log(err.response));
 
     }
-
-
-
     handleChange = (e) =>
         this.setState({ [e.target.name]: e.target.value })
 
@@ -62,23 +56,17 @@ export default class Product extends Component {
         })
 
     }
-
-
     handleSubmit = (e) => {
-        e.preventDefault(); //stop refreshing
+        e.preventDefault(); 
 
 
     }
-
-
-
-
 
     render() {
         return (
 
             <div className="App">
-                <nav className="autohide navbar navbar-expand-lg navbar-dark bg-secondary" id="mainNav">
+                <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
                     <div className="container">
                         <a className="navbar-brand js-scroll-trigger" href="#page-top">Music Store</a>
                         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -200,7 +188,6 @@ export default class Product extends Component {
                                         <th>S.N</th>
                                         <th>Product Name</th>
                                         <th>Price</th>
-                                        {/* <th>BOOK Now</th> */}
 
                                     </tr>
                                 </thead>
@@ -212,7 +199,6 @@ export default class Product extends Component {
                                             <td key={Product._id}>{Product.sn}</td>
                                             <td key={Product._id}>{Product.productname}</td>
                                             <td key={Product._id}>{Product.productprice}</td>
-                                            {/* <Button onClick={() => this.Book(Product._id)} >Book Now</Button> */}
 
 
                                         </tr>
@@ -222,8 +208,6 @@ export default class Product extends Component {
                         </div>
                     </div>
                 </section>
-
-
 
                 <footer className="footer">
                     <div className="container">

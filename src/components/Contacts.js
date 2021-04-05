@@ -10,7 +10,7 @@ export default class Inquiry extends Component {
         return (
         
           <div className="App">
-          <nav className="autohide navbar navbar-expand-lg navbar-dark bg-secondary" id="mainNav">
+          <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div className="container">
         <a className="navbar-brand js-scroll-trigger" href="#page-top">Music Store</a>
           <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,13 +34,8 @@ export default class Inquiry extends Component {
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link js-scroll-trigger" to="/Inquiry">Inquiry</Link>
-                </li>
-
-                
-
-
-              
+                  <Link className="nav-link js-scroll-trigger" to="/Contacts">Contacts</Link>
+                </li> 
             </ul>
           </div>
         </div>
@@ -88,13 +83,7 @@ export default class Inquiry extends Component {
             </div>
           </div>
         </section>
-     
-  
-     
-    
-    
-      
-      <footer className="footer">
+         <footer className="footer">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-4">

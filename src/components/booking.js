@@ -40,20 +40,15 @@ export default class booking extends Component {
                     seats: '',
                     customername: '',
                     location: '',
-             
-                     
-                 
                 })
 
             }).catch(err => console.log(err.response));
 
     }
-
-
     render() {
         return (
             <div className="App">
-                <nav className="autohide navbar navbar-expand-lg navbar-dark bg-secondary" id="mainNav">
+                <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
                     <div className="container">
                     <a className="navbar-brand js-scroll-trigger" href="#page-top">Music Store</a>
                         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -148,8 +143,6 @@ export default class booking extends Component {
                                                 <Form.Control type="text" name="seats" id="seats" placeholder="Add Requuired seats number"
                                                     value={this.state.seats} onChange={this.handleChange} />
                                             </FormGroup>
-                                        
-                                                {/* <button onClick={this.shoot}>Take the shot!</button> */}
                                              <Button variant="primary" size="sm" block onClick={this.handleSubmit.bind(this,"Successful")} >Book now</Button>
                                         </fieldset>
                                     </Form>
@@ -160,9 +153,6 @@ export default class booking extends Component {
                         </div>
                     </div>
                 </section>
-
-
-                
                 <footer className="footer">
                     <div className="container">
                         <div className="row align-items-center">

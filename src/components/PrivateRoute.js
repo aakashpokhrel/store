@@ -1,5 +1,3 @@
-//to make secure dashboard private roouter is defined 
-//redirect to the login page 
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
